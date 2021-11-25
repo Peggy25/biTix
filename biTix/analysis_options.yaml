@@ -1,0 +1,13 @@
+analyzer:
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: true
+  errors:
+    close_sinks: ignore
+    unrelated_type_equality_checks: ignore
+    cascade_invocations: ignore
+    non_constant_identifier_names: ignore
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:

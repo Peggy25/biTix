@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "896081807537",
+    "project_id": "bitix-87643",
+    "storage_bucket": "bitix-87643.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:896081807537:android:3b95b5c0e7c200c3637a90",
+        "android_client_info": {
+          "package_name": "com.example.bitix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "896081807537-ah8hethgbgh3g7gd0s7hmetpqhtkcgnh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bitix",
+            "certificate_hash": "55f78d20daac3e168f3cced5cf7d4a6a960e601c"
+          }
+        },
+        {
+          "client_id": "896081807537-v5au8j2itkq0750ch1esno5ar3akv0kp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAD6rPPuW_VB2IJO18ErGh4rjEeggGl8KM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "896081807537-v5au8j2itkq0750ch1esno5ar3akv0kp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
