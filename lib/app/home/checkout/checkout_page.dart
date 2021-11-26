@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:bitix/app/auth/models/user.dart';
-import 'package:bitix/app/auth/services/firestore_services.dart';
+import 'package:bitix/app/auth/services/save_ticket.dart';
 import 'package:bitix/app/home/booking/select_seat_and_date.dart';
 import 'package:bitix/app/home/dashboard/dashboard_page.dart';
 
@@ -238,7 +238,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     onTap: () {
                       var random = Random();
                       var generateId = random.nextInt(1000000);
-                      FirestoreServices.saveTicket(
+                     saveTicket(
                               dummyUser.id,
                               TicketModel(
                                   name: widget.ticketModel!.movieModel!.title,

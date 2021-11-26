@@ -1,9 +1,8 @@
 import 'package:bitix/app/auth/models/user.dart';
-import 'package:bitix/app/auth/services/firestore_services.dart';
+import 'package:bitix/app/auth/services/get_ticket.dart';
 import 'package:bitix/app/home/ticket/models/ticket_transaction.dart';
 import 'package:bitix/app/home/ticket/widgets/card_ticket.dart';
 import 'package:bitix/shared/color.dart';
-import 'package:bitix/shared/end_point.dart';
 import 'package:bitix/shared/font_style.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +30,7 @@ class _TicketPageState extends State<TicketPage> {
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: FutureBuilder(
-          future: FirestoreServices.getTicket('${dummyUser.id}'),
+          future:getTicket('${dummyUser.id}'),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
               // if error

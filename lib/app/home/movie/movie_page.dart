@@ -1,8 +1,11 @@
 import 'package:bitix/app/auth/models/user.dart';
 import 'package:bitix/app/home/movie/detail_movie_page.dart';
 import 'package:bitix/app/home/movie/models/movie.dart';
-import 'package:bitix/app/home/movie/services/movie_services.dart';
+import 'package:bitix/app/home/movie/services/coming_soon.dart';
+import 'package:bitix/app/home/movie/services/now_playing.dart';
 import 'package:bitix/app/home/movie/widgets/movie_card.dart';
+import 'package:bitix/app/home/profile/profile_page.dart';
+import 'package:bitix/app/intro/intro_pages.dart';
 import 'package:bitix/shared/assets.dart';
 import 'package:bitix/shared/color.dart';
 import 'package:bitix/shared/font_style.dart';
@@ -62,7 +65,7 @@ class _MoviePageState extends State<MoviePage> {
                     SizedBox(
                         height: 200,
                         child: FutureBuilder(
-                          future: MovieServices.getNowPlaying(),
+                          future: getNowPlaying(),
                           builder: (context, snapshot) {
                             movieNowPlaying =
                                 snapshot.data as List<MovieModel>?;
@@ -133,7 +136,7 @@ class _MoviePageState extends State<MoviePage> {
                     SizedBox(
                         height: 200,
                         child: FutureBuilder(
-                          future: MovieServices.getUpcoming(),
+                          future: getUpcoming(),
                           builder: (context, snapshot) {
                             movieUpComing = snapshot.data as List<MovieModel>?;
                             if (snapshot.connectionState ==
@@ -247,14 +250,20 @@ class CustomAppBar extends StatelessWidget {
 
           ///
           /// image profile
-          Container(
-            height: 55,
-            width: 55,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                  image: AssetImage(ImageApp.get(ImageApp.img_user_pic)),
-                  fit: BoxFit.cover),
+          GestureDetector(
+            onTap: () {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute<void>(builder: (_) => const ProfilePage()));
+            },
+            child: Container(
+              height: 55,
+              width: 55,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    image: AssetImage(ImageApp.get(ImageApp.img_user_pic)),
+                    fit: BoxFit.cover),
+              ),
             ),
           ),
 

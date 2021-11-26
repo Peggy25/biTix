@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:bitix/app/auth/models/user.dart';
 import 'package:bitix/app/home/booking/models/theater.dart';
 import 'package:bitix/app/home/booking/select_teather_page.dart';
 import 'package:bitix/app/home/booking/widgets/box_selected.dart';
@@ -183,6 +186,9 @@ class _SelectSeatAndDateState extends State<SelectSeatAndDate> {
                     child: ButtonPrimary(
                       widthButton: 200,
                       onTap: () {
+                        var random = Random();
+
+                        var kode = random.nextInt(10000000);
                         if (selectedOfSeats.isEmpty || selectedTime == "") {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               content: Text(
@@ -195,8 +201,8 @@ class _SelectSeatAndDateState extends State<SelectSeatAndDate> {
                               MaterialPageRoute<void>(
                                   builder: (_) => CheckoutPage(
                                         ticketModel: TicketModel(
-                                            name: "Peggy",
-                                            bookingCode: "123ASDF3",
+                                            name: dummyUser.name,
+                                            bookingCode: kode.toString(),
                                             movieDetail:
                                                 widget.movieDetailModel,
                                             movieModel: widget.movieModel,

@@ -3,7 +3,8 @@ import 'package:bitix/app/home/dashboard/dashboard_page.dart';
 import 'package:bitix/app/home/movie/models/credits.dart';
 import 'package:bitix/app/home/movie/models/movie.dart';
 import 'package:bitix/app/home/movie/models/movie_detail.dart';
-import 'package:bitix/app/home/movie/services/movie_services.dart';
+import 'package:bitix/app/home/movie/services/credits_movie.dart';
+import 'package:bitix/app/home/movie/services/detail_movie.dart';
 import 'package:bitix/app/home/movie/widgets/credit_image.dart';
 import 'package:bitix/shared/color.dart';
 import 'package:bitix/shared/end_point.dart';
@@ -95,8 +96,7 @@ class _DetailMoviePageState extends State<DetailMoviePage> {
                 ];
               },
               body: FutureBuilder(
-                future: MovieServices.getDetailMovie(widget.model,
-                    idMovie: widget.model!.id),
+                future: getDetailMovie(widget.model, idMovie: widget.model!.id),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.done) {
                     if (snapshot.hasError) {
@@ -170,8 +170,7 @@ class _DetailMoviePageState extends State<DetailMoviePage> {
                             SizedBox(
                                 height: 100,
                                 child: FutureBuilder(
-                                  future: MovieServices.getCredits(
-                                      widget.model!.id!),
+                                  future: getCredits(widget.model!.id!),
                                   builder: (context, snapshotCredit) {
                                     credits = snapshotCredit.data
                                         as List<CreditsModel>?;
